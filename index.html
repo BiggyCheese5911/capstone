@@ -7,23 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-    <h1>Inventory Manager</h1>
+  <h1>Inventory Manager</h1>
+    <div class="search-container">
+      <div class="search">
         <div class="search-side">
           <h2>Search For Inventory</h2>
-          <p>Search for a product by name: <input type="text"></p>
+          <hr>
+          <p>Search for a product by name: </p>
+          <input type="text" id="product-name">
+
           <p>Search for a product by type: </p>
-          <select multiple="">
+          <select multiple="" id="select-type">
             <option value="food">Food</option>
             <option value="utility">Utility</option>
             <option value="clothing">Clothing</option>
             <option value="electronics">Electronics</option>
           </select>
+
+          <p>Max Price</p>
+          <input type="number" id="max-price">
+
         </div>
 
-        <div class="results">
-
-        </div>
+      <div class="results">
+        <h2>Results</h2>
+        <hr>
+        <p id="search-results">Results will appear here</p>
+      </div>
+      </div>
     </div>
+
+  <h1>Current Inventory</h1>
+  <div class="current-inventory">
+      <     
+  </div>
 </body>
 </html>
