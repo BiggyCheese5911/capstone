@@ -55,3 +55,28 @@ option{
 .results{
     font-size: 22px;
 }
+
+.sb{
+    font-size: 22px;
+    background-color: lightblue;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.sb:hover{
+    color: blue;
+    background-color: white;
+    margin: 5px;
+}
+
+#add-inventory{
+    font-size: 22px;
+    background-color: salmon;
+    transition: 0.3s;
+}
+
+#add-inventory:hover{
+    color: salmon;
+    background-color: white;
+    margin: 5px;
+}
