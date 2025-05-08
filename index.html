@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Manager</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
   <h1>Inventory Manager</h1>
@@ -27,12 +28,17 @@
           <p>Max Price</p>
           <input type="number" id="max-price">
 
+          <br>
+
+          <button class="sb" id="si">Search</button>
+
         </div>
 
       <div class="results">
         <h2>Results</h2>
         <hr>
         <p id="search-results">Results will appear here</p>
+        <ul id="sr"></ul>
       </div>
       </div>
     </div>
@@ -44,11 +50,29 @@
       <button class="sb" id="utility">Utility</button>
       <button class="sb" id="clothing">Clothing</button>
       <button class="sb" id="electronics">Electronics</button>
-      <h2>Inventory will appear here</h2>
+      <h2 id="show-inventory">Inventory will appear here</h2>
+      <p id="aci"></p>
+      <hr>
 
       <h2>Add Inventory</h2>
-      <hr>
-      <button id="add-inventory">Add Inventory</button>
+
+    <div id="ad">
+      <p>Give product name</p>
+          <input type="text" id="apn">
+
+          <p>Choose product type</p>
+          <select multiple="" id="cpt">
+            <option value="food">Food</option>
+            <option value="utility">Utility</option>
+            <option value="clothing">Clothing</option>
+            <option value="electronics">Electronics</option>
+          </select>
+
+          <p>Input item price</p>
+          <input type="number" id="cip">
+          <br>
+      <button id="add-inventory" onclick="addInventory()">Add Inventory</button>
+      </div>
   </div>
 </body>
 </html>
