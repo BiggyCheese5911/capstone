@@ -104,3 +104,28 @@ option{
 #ad p{
     font-size: 20px;
 }
+
+.new-item{
+    font-size: 22px;
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    border: solid black 2px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-btn{
+    font-size: 22px;
+    background-color: red;
+    border-radius: 5px;
+    padding: 3px;
+    border: solid black 2px;
+    transition: 0.3s;
+}
+
+.add-btn:hover{
+    background-color: white;
+    color: red;
+}
