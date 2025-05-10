@@ -9,6 +9,7 @@
 </head>
 <body>
   <h1>Inventory Manager</h1>
+  <button id="sb" onclick="changeTheme()">Change Theme</button>
     <div class="search-container">
       <div class="search">
         <div class="search-side">
@@ -16,7 +17,7 @@
           <hr>
           <p>Search for a product by name: </p>
           <input type="text" id="product-name">
-
+<!-- 
           <p>Search for a product by type: </p>
           <select multiple="" id="select-type">
             <option value="food">Food</option>
@@ -26,7 +27,7 @@
           </select>
 
           <p>Max Price</p>
-          <input type="number" id="max-price">
+          <input type="number" id="max-price"> -->
 
           <br>
 
@@ -45,11 +46,11 @@
 
   <h1>Current Inventory</h1>
   <div class="current-inventory">
-      <button class="sb" id="all-items">All Items</button>
-      <button class="sb" id="food">Food</button>
-      <button class="sb" id="utility">Utility</button>
-      <button class="sb" id="clothing">Clothing</button>
-      <button class="sb" id="electronics">Electronics</button>
+      <button class="sb" onclick="filter('')">All Items</button>
+      <button class="sb"  onclick="filter('Food')" id="all-items" id="food">Food</button>
+      <button class="sb" onclick="filter('Utility')" id="utility">Utility</button>
+      <button class="sb" onclick="filter('Clothing')" id="clothing">Clothing</button>
+      <button class="sb" onclick="filter('Electronics')" id="electronics">Electronics</button>
       <h2 id="show-inventory">Inventory will appear here</h2>
       <p id="aci"></p>
       <hr>
@@ -63,9 +64,9 @@
           <p>Choose product type</p>
           <select multiple="" id="cpt">
             <option value="Food">Food</option>
-            <option value="Utility">Utility</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Electronics">Electronics</option>
+            <option value="Utility" >Utility</option>
+            <option value="Clothing" >Clothing</option>
+            <option value="Electronics" >Electronics</option>
           </select>
 
           <p>Input item price</p>

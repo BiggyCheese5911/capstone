@@ -107,7 +107,7 @@ option{
 
 .new-item{
     font-size: 22px;
-    background-color: lightgray;
+    background-color: rgb(227, 226, 226);
     border-radius: 5px;
     padding: 5px;
     border: solid black 2px;
@@ -128,4 +128,12 @@ option{
 .add-btn:hover{
     background-color: white;
     color: red;
+}
+
+#sb{
+    text-align: center;
+    font-size: 22px;
+    background-color: lightblue;
+    transition: 0.3s;
+    border-radius: 5px;
 }
