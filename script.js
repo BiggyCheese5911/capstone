@@ -37,6 +37,12 @@ function filter(category) {
     console.log(filtered);
 
     display(filtered)
+
+    // if(filtered.length >= 0 && category !== ''){
+    //   document.getElementById('show-inventory').innerHTML = `No ${category} In Inventory.`
+    // }else{
+    //   document.getElementById('show-inventory').innerHTML = `No Items in Inventory.`
+    // }
 };
 
 function display(items){
@@ -44,6 +50,7 @@ function display(items){
     items.forEach((item) => {
         let card = document.createElement("div");
         let btn = document.createElement("button");
+     
         // card.innerHTML = item.name + ' ' + item.productType + ' ' + '$' + item.itemPrice;
         card.innerHTML = `Item Name: ${item.name} | Item Type: ${item.productType} | Item Price: $${item.itemPrice} | Entered On: ${item.time} <button class="add-btn" onclick="dlt(${item.id})">Delete</button>`;
         card.classList.add("new-item");
@@ -53,9 +60,38 @@ function display(items){
 
 function dlt(id){
     // inventory.splice(index, 1)
-    let newIn = inventory.filter(item => item.id = id)
-    console.log(newIn)
-    display(inventory)
+    inventory = inventory.filter(item => item.id !== id)
+    // display(inventory)
 
     filter()
+}
+
+function performSearch(){
+  const searchTerm = document.getElementById("product-name").value.toLowerCase();
+
+  let filteredItems = inventory.filter((item) => {
+    let itemValue = item.name.toLowerCase();
+    console.log(itemValue);
+
+    return itemValue.includes(searchTerm.toLowerCase())
+  });
+
+  console.log(filteredItems)
+  // displayItems(filteredItems);
+
+  let html = ""
+  filteredItems.forEach(item => {
+    html += `Item Name: ${item.name} | Item Type: ${item.productType} | Item Price: $${item.itemPrice} | Entered On: ${item.time} <hr>`;
+    // card.classList.add("new-item");
+  })
+
+  document.getElementById('search-results').innerHTML = html;
+  
+  if(document.getElementById('product-name')){
+    html == ""
+  }
+}
+
+function changeTheme(){
+    document.getElementById("search-side").className.add("dark-search-side")
 }

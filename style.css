@@ -131,9 +131,21 @@ option{
 }
 
 #sb{
-    text-align: center;
     font-size: 22px;
-    background-color: lightblue;
+    background-color: blue;
+    color: white;
     transition: 0.3s;
     border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#sb:hover{
+    padding: 5px;
+    color: blue;
+    background-color: white;
+}
+
+/*Dark Theme*/
+.dark-search-side{
+    color: red;
 }
