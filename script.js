@@ -61,9 +61,9 @@ function display(items){
 function dlt(id){
     // inventory.splice(index, 1)
     inventory = inventory.filter(item => item.id !== id)
-    // display(inventory)
+    display(inventory)
 
-    filter()
+    // filter()
 }
 
 function performSearch(){
@@ -93,5 +93,6 @@ function performSearch(){
 }
 
 function changeTheme(){
-    document.getElementById("search-side").className.add("dark-search-side")
+    document.getElementById('search-container').classList.add('dark-search-container');
+    document.getElementById('body').classList.add('dark-side');
 }

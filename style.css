@@ -3,7 +3,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-body{
+#body{
     background-color: #e6e6e6;
 }
 
@@ -12,7 +12,7 @@ body{
     justify-content: space-around;
 }
 
-.search-container{
+#search-container{
     margin: 0 auto;
     height: 40%;
     width: 90%;
@@ -21,6 +21,7 @@ body{
     padding: 10px;
     font-size: 16px;
     margin-bottom: 20px;
+    box-shadow: 5px 5px 5px black;
 }
 
 .current-inventory{
@@ -32,9 +33,11 @@ body{
     padding: 10px;
     font-size: 16px;
     margin-bottom: 10px;
+    box-shadow: 3px 3px 3px black;
+
 }
 
-.search-side p{
+#search-side p{
     font-size: 20px;
 }
 
@@ -46,6 +49,7 @@ h1{
     text-align: center;
     padding: 10px;
     margin-bottom: 25px;
+    box-shadow: 3px 3px 3px black;
 }
 
 h2{
@@ -68,13 +72,16 @@ option{
     background-color: lightblue;
     transition: 0.3s;
     border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
 }
 
 .sb:hover{
     color: blue;
     background-color: white;
-    margin: 5px;
+    /* margin: 5px; */
     cursor: pointer;
+    box-shadow: 3px 3px 3px blue;
+    font-size: 28px;
 }
 
 #add-inventory{
@@ -83,13 +90,16 @@ option{
     transition: 0.3s;
     border-radius: 5px;
     margin-top: 10px;
+    box-shadow: 3px 3px 3px black;
 }
 
 #add-inventory:hover{
     color: salmon;
     background-color: white;
-    margin: 5px;
+    margin-top: 5px;
     cursor: pointer;
+    box-shadow: 3px 3px 3px salmon;
+    font-size: 25px;
 }
 
 #si{
@@ -114,6 +124,7 @@ option{
     margin: 5px;
     display: flex;
     justify-content: space-between;
+    box-shadow: 3px 3px 3px black;
 }
 
 .add-btn{
@@ -123,11 +134,14 @@ option{
     padding: 3px;
     border: solid black 2px;
     transition: 0.3s;
+    box-shadow: 3px 3px 3px black;
 }
 
 .add-btn:hover{
     background-color: white;
     color: red;
+    box-shadow: 3px 3px 3px red;
+    font-size: 25px;
 }
 
 #sb{
@@ -137,15 +151,23 @@ option{
     transition: 0.3s;
     border-radius: 5px;
     margin-bottom: 15px;
+    box-shadow: 3px 3px 3px black;
 }
 
 #sb:hover{
-    padding: 5px;
-    color: blue;
-    background-color: white;
+    /* margin: 5px; */
+    color: pink;
+    background-color: black;
+    box-shadow: 3px 3px 3px purple;
+    font-size: 28px;
 }
 
 /*Dark Theme*/
-.dark-search-side{
-    color: red;
+.dark-search-container{
+    color: white;
+    background-color: black;
+}
+
+.dark-side{
+    background-color: black;
 }
