@@ -5,6 +5,7 @@
 
 :root{
     --bg: white;
+    --dbg: #232323;
 }
 
 .light{
@@ -165,6 +166,23 @@ option{
     box-shadow: 3px 3px 3px purple;
     font-size: 28px;
 }
+
+#db{
+    font-size: 22px;
+    background-color: black;
+    color: pink;
+    transition: 0.3s;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 3px 3px 3px pink;
+}
+
+#db:hover{
+    color: black;
+    background-color: pink;
+    box-shadow: 3px 3px 3px pink;
+    font-size: 28px;
+}
 }
 
 /*Dark Theme*/
@@ -181,24 +199,26 @@ option{
         margin: 0 auto;
         height: 40%;
         width: 90%;
-        background-color: var(--bg);
+        background-color: var(--dbg);
         border-radius: 25px;
         padding: 10px;
         font-size: 16px;
         margin-bottom: 20px;
-        box-shadow: 5px 5px 5px black;
+        box-shadow: 5px 5px 5px purple;
+        color: white;
     }
     
     .current-inventory{
         margin: 0 auto;
         height: 40%;
         width: 90%;
-        background-color: var(--bg);
+        background-color: var(--dbg);
         border-radius: 25px;
         padding: 10px;
         font-size: 16px;
         margin-bottom: 10px;
-        box-shadow: 3px 3px 3px black;
+        box-shadow: 3px 3px 3px purple;
+        color: white;
     
     }
     
@@ -207,14 +227,15 @@ option{
     }
     
     h1{
-        background-color: lightblue;
+        background-color: darkorchid;
         border-radius: 20px;
         max-width: 400px;
         margin: 0 auto;
         text-align: center;
         padding: 10px;
         margin-bottom: 25px;
-        box-shadow: 3px 3px 3px black;
+        box-shadow: 3px 3px 3px purple;
+        color: white;
     }
     
     h2{
@@ -234,36 +255,39 @@ option{
     
     .sb{
         font-size: 22px;
-        background-color: lightblue;
+        background-color: darkorchid;
         transition: 0.3s;
         border-radius: 5px;
-        box-shadow: 3px 3px 3px black;
+        box-shadow: 3px 3px 3px purple;
+        color: white;
+        border: 2px solid black;
     }
     
     .sb:hover{
-        color: blue;
+        color: purple;
         background-color: white;
         /* margin: 5px; */
         cursor: pointer;
-        box-shadow: 3px 3px 3px blue;
+        box-shadow: 3px 3px 3px darkorchid;
         font-size: 28px;
     }
     
     #add-inventory{
         font-size: 22px;
-        background-color: salmon;
+        background-color: blue;
+        color: white;
         transition: 0.3s;
         border-radius: 5px;
         margin-top: 10px;
-        box-shadow: 3px 3px 3px black;
+        box-shadow: 3px 3px 3px white;
     }
     
     #add-inventory:hover{
-        color: salmon;
+        color: blue;
         background-color: white;
         margin-top: 5px;
         cursor: pointer;
-        box-shadow: 3px 3px 3px salmon;
+        box-shadow: 3px 3px 3px blue;
         font-size: 25px;
     }
     
@@ -282,14 +306,14 @@ option{
     
     .new-item{
         font-size: 22px;
-        background-color: rgb(227, 226, 226);
+        background-color: #0d0d0d;
         border-radius: 5px;
         padding: 5px;
-        border: solid black 2px;
+        border: solid darkorchid 2px;
         margin: 5px;
         display: flex;
         justify-content: space-between;
-        box-shadow: 3px 3px 3px black;
+        box-shadow: 3px 3px 3px purple;
     }
     
     .add-btn{
@@ -297,15 +321,14 @@ option{
         background-color: red;
         border-radius: 5px;
         padding: 3px;
-        border: solid black 2px;
+        border: solid white 2px;
         transition: 0.3s;
-        box-shadow: 3px 3px 3px black;
     }
     
     .add-btn:hover{
         background-color: white;
         color: red;
-        box-shadow: 3px 3px 3px red;
+        border: solid red 2px;
         font-size: 25px;
     }
     
@@ -316,14 +339,31 @@ option{
         transition: 0.3s;
         border-radius: 5px;
         margin-bottom: 15px;
-        box-shadow: 3px 3px 3px black;
+        box-shadow: 3px 3px 3px white;
     }
     
     #sb:hover{
         /* margin: 5px; */
-        color: pink;
+        color: blue;
+        background-color: white;
+        box-shadow: 3px 3px 3px blue;
+        font-size: 28px;
+    }
+
+    #db{
+        font-size: 22px;
         background-color: black;
-        box-shadow: 3px 3px 3px purple;
+        color: pink;
+        transition: 0.3s;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        box-shadow: 3px 3px 3px black;
+    }
+    
+    #db:hover{
+        color: black;
+        background-color: pink;
+        box-shadow: 3px 3px 3px black;
         font-size: 28px;
     }
 }
