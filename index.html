@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Manager</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
 </head>
-<body id="body">
+<body class="light">
   <h1>Inventory Manager</h1>
     <div id="search-container">
       <div class="search">
@@ -50,9 +50,12 @@
       <button class="sb" onclick="filter('Utility')" id="utility">Utility</button>
       <button class="sb" onclick="filter('Clothing')" id="clothing">Clothing</button>
       <button class="sb" onclick="filter('Electronics')" id="electronics">Electronics</button>
-  <button id="sb" onclick="changeTheme()">Change Theme</button>
+      <!-- <button class="sb" onclick="saveInventory()" id="saveInventory">Save Inventory</button> -->
+      <!-- <button class="sb" onclick="retrieveInventory()" id="saveInventory">Retrieve Inventory</button> -->
+  <button id="sb" onclick="changeTheme()">Light Mode</button>
+  <button id="db" onclick="changeTheme()">Dark Mode</button>
 
-      <h2 id="show-inventory">Inventory will appear here</h2>
+      <h2 id="show-inventory">Inventory</h2>
       <p id="aci"></p>
       <hr>
 

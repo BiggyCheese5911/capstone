@@ -6,7 +6,7 @@ function addInventory() {
     document.getElementById("cpt").value &&
     document.getElementById("cip").value
   ) {
-    document.getElementById("show-inventory").style.display = "none";
+    // document.getElementById("show-inventory").style.display = "none";
 
     let newItem = {
         id: Date.now(),
@@ -26,6 +26,8 @@ function addInventory() {
     inventory.push(newItem);
     console.log(inventory);
     display(inventory)
+  localStorage.setItem('inventory', JSON.stringify(inventory))
+
   }
 }
 
@@ -63,6 +65,8 @@ function dlt(id){
     inventory = inventory.filter(item => item.id !== id)
     display(inventory)
 
+    localStorage.setItem('inventory', JSON.stringify(inventory))
+
     // filter()
 }
 
@@ -92,7 +96,33 @@ function performSearch(){
   }
 }
 
-function changeTheme(){
-    document.getElementById('search-container').classList.add('dark-search-container');
-    document.getElementById('body').classList.add('dark-side');
+const lightBtn = document.getElementById('sb');
+const darkBtn = document.getElementById('db');
+const body = document.body;
+
+function changeTheme(theme){
+  if(theme === 'dark'){
+    body.classList.remove('light');
+    body.classList.add('dark')
+    document.getElementById('db').style.display = 'none'
+    document.getElementById('sb').style.display = 'inline'
+  }else if(theme === 'light'){
+    body.classList.remove('dark');
+    body.classList.add('light');
+    document.getElementById('db').style.display = 'inline'
+    document.getElementById('sb').style.display = 'none'
+  }
+  localStorage.setItem('theme', theme);
 }
+
+lightBtn.addEventListener('click', () => changeTheme('light'));
+darkBtn.addEventListener('click', () => changeTheme('dark'));
+
+function retrieveInventory(){
+  inventory = JSON.parse(localStorage.getItem('inventory')) || [];
+
+  changeTheme(localStorage.getItem('theme'))
+  display(inventory)
+}
+retrieveInventory()
+changeTheme()
