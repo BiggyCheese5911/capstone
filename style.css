@@ -17,6 +17,10 @@
     justify-content: space-around;
 }
 
+input{
+    border-radius: 10px;
+}
+
 #search-container{
     margin: 0 auto;
     height: 40%;

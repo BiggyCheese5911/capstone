@@ -1,13 +1,12 @@
 let inventory = [];
 
+// Add a new item to inventory array
 function addInventory() {
   if (
     document.getElementById("apn").value &&
     document.getElementById("cpt").value &&
     document.getElementById("cip").value
   ) {
-    // document.getElementById("show-inventory").style.display = "none";
-
     let newItem = {
         id: Date.now(),
       time: new Date().toLocaleDateString("en-us", {
@@ -31,6 +30,7 @@ function addInventory() {
   }
 }
 
+// Filters array for selected filter
 function filter(category) {
     console.log(category);
     let filtered = inventory.filter(item => {
@@ -39,14 +39,10 @@ function filter(category) {
     console.log(filtered);
 
     display(filtered)
-
-    // if(filtered.length >= 0 && category !== ''){
-    //   document.getElementById('show-inventory').innerHTML = `No ${category} In Inventory.`
-    // }else{
-    //   document.getElementById('show-inventory').innerHTML = `No Items in Inventory.`
-    // }
 };
 
+
+// Displays new item in the HTML
 function display(items){
     document.getElementById("aci").innerHTML = "";
     items.forEach((item) => {
@@ -60,11 +56,13 @@ function display(items){
       });
 }
 
+// Deletes item from inventory array
 function dlt(id){
     // inventory.splice(index, 1)
     inventory = inventory.filter(item => item.id !== id)
     display(inventory)
 
+    // Deletes item from local storage when an item is deleted
     localStorage.setItem('inventory', JSON.stringify(inventory))
 
     // filter()
@@ -115,6 +113,7 @@ function changeTheme(theme){
   localStorage.setItem('theme', theme);
 }
 
+// Event Listeners
 lightBtn.addEventListener('click', () => changeTheme('light'));
 darkBtn.addEventListener('click', () => changeTheme('dark'));
 

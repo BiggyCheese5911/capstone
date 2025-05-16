@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Manager</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="greet.js"></script>
     <script defer src="script.js"></script>
 </head>
 <body class="light">
@@ -16,22 +17,7 @@
           <hr>
           <p>Search for a product by name: </p>
           <input type="text" id="product-name" oninput="performSearch()">
-<!-- 
-          <p>Search for a product by type: </p>
-          <select multiple="" id="select-type">
-            <option value="food">Food</option>
-            <option value="utility">Utility</option>
-            <option value="clothing">Clothing</option>
-            <option value="electronics">Electronics</option>
-          </select>
-
-          <p>Max Price</p>
-          <input type="number" id="max-price"> -->
-
           <br>
-
-          <!-- <button class="sb" id="si">Search</button> -->
-
         </div>
 
       <div class="results">
@@ -50,10 +36,8 @@
       <button class="sb" onclick="filter('Utility')" id="utility">Utility</button>
       <button class="sb" onclick="filter('Clothing')" id="clothing">Clothing</button>
       <button class="sb" onclick="filter('Electronics')" id="electronics">Electronics</button>
-      <!-- <button class="sb" onclick="saveInventory()" id="saveInventory">Save Inventory</button> -->
-      <!-- <button class="sb" onclick="retrieveInventory()" id="saveInventory">Retrieve Inventory</button> -->
-  <button id="sb" onclick="changeTheme()">Light Mode</button>
-  <button id="db" onclick="changeTheme()">Dark Mode</button>
+      <button id="sb" onclick="changeTheme()">Light Mode</button>
+      <button id="db" onclick="changeTheme()">Dark Mode</button>
 
       <h2 id="show-inventory">Inventory</h2>
       <p id="aci"></p>
