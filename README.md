@@ -1,8 +1,8 @@
-# Inventory Manager Code Explanation
+# Inventory Manager General Code Explanation
 This document provides a detailed explanation of the Inventory Manager web application code. The application is a simple Inventory Manager made using HTML, CSS, and JavaScript.
 
 ## Table of Contents
-- [Inventory Manager Code Explanation](#inventory-manager-code-explanation)
+- [Inventory Manager General Code Explanation](#inventory-manager-general-code-explanation)
 - [HTML Structure](#html-structure)
 - [CSS Styling](#css-styling)
 - [JavaScript Functionality](#javascript-functionality)
@@ -11,6 +11,9 @@ This document provides a detailed explanation of the Inventory Manager web appli
     - [Inventory Operations](#inventory-operations)
     - [UI Rendering](#ui-rendering)
     - [Event Handling](#event-handling)
+    - [Cookie Usage](#cookie-usage)
+    - [Theme Switching](#theme-switching)
+    - [Timer Functionality](#timer-functionality)
 - [Data Management](#data-management)
 - [Event Flow](#event-flow)
 
@@ -619,8 +622,94 @@ This function handles UI updates:
 lightBtn.addEventListener('click', () => changeTheme('light'));
 darkBtn.addEventListener('click', () => changeTheme('dark'));
 ```
-The final section sets up event listeners:
+This section sets up event listeners:
 - Click Handler for changing the theme.
+### Cookie Usage
+```javascript
+    function greetUser(){
+    console.log(document.cookie)
+    const hasVisitedBefore = document.cookie.includes('visitedBefore=true');
+    if(hasVisitedBefore){
+        alert("Welcome back to your Inventory Manager!📊");
+    }else{
+        const expDate = new Date();
+        expDate.setDate(expDate.getDate() + 7);
+        // console.log(expDate)
+        document.cookie = `visitedBefore=true; expires=${expDate.toUTCString()}; path=/`;
+        // console.log(document.cookie)
+        alert("Welcome to Inventory Manager!📊");
+    };
+};
+greetUser();
+```
+- This function creates a cookie to welcome the user if it is their first time using the site, or to welcome them back if they are returning.
+## Theme Switching
+```javascript
+    const lightBtn = document.getElementById('sb');
+    const darkBtn = document.getElementById('db');
+    const body = document.body;
+
+    function changeTheme(theme){
+    if(theme === 'dark'){
+        body.classList.remove('light');
+        body.classList.add('dark')
+        document.getElementById('db').style.display = 'none'
+        document.getElementById('sb').style.display = 'inline'
+    }else if(theme === 'light'){
+        body.classList.remove('dark');
+        body.classList.add('light');
+        document.getElementById('db').style.display = 'inline'
+        document.getElementById('sb').style.display = 'none'
+    }
+    localStorage.setItem('theme', theme);
+    }
+```
+- Buttons allow for easy theme switching.
+- When a theme is switched, the preference is stored in local storage.
+### Timer Functionality
+```javascript
+    let startTime, timerInterval;
+
+// timer function
+function startTimer(){
+  startTime = Date.now();
+  sessionStorage.removeItem("time");
+  
+  timerInterval = setInterval(() => {
+    const seconds = Math.floor((Date.now() - startTime) / 1000);
+    sessionStorage.setItem("time", seconds);
+    updateTimerDisplay(seconds);
+  }, 1000);
+}
+
+// stop timer
+function stopTimer(){
+  clearInterval(timerInterval);
+}
+
+// format time
+function getFormattedTime(){
+  const seconds = +sessionStorage.getItem("time") || 0;
+  return formatTime(seconds);
+}
+
+// update timer
+function updateTimerDisplay(seconds){
+  document.getElementById("timerDisplay").textContent = `Time: ${formatTime(seconds)}`;
+}
+
+// format seconds to Xm Yx
+function formatTime(seconds){
+  const m = Math.floor(seconds / 60);
+  const s = seconds % 60;
+  return `${m}m ${s}s`;
+}
+
+startTimer()
+```
+- The `startTimer()` function is called as soon as the page loads, starting the timer immediately.
+- The timer updates into an empty `p` element in the HTML.
+- Time is formatted to be visible in minutes and seconds.
 ## Data Management
 The application handles data in a very simple way:
 1. **Item Object Structure**:
@@ -645,13 +734,15 @@ The application handles data in a very simple way:
     - Items are stored as a JSON string and parsed back into the inventory array upon page load.
     - This allows the inventory array to persist even after the application is closed.
 ## Event Flow
-The typical flow of the operation is:
-1. User chooses item information and adds a new item -> `retrieveInventory()` -> `addInventory()` -> `display()`
-2. User can search for an item in the inventory array -> `performSearch()`
-3. User can use the filter functionality to only display items with a certain item type -> `filter()` -> `display()`
-4. User clears all tasks -> `clearAllTasks()` -> `saveTasks()` -> `renderTasks()`
+The flow of the program is as follows:
+1. When the page loads, a cookie is either created or retrieved depending on whether it is your first time opening the application or not -> `greetUser()`
+2. After the user clicks off the initial welcome alert, the inventory array is retrieved from the local storage and the timer starts. User then chooses item information and adds a new item while saving it to local storage -> `retrieveInventory()` -> `startTimer()` -> `updateTimerDisplay()` -> `addInventory()` -> `display()`
+3. User can search for an item in the inventory array -> `performSearch()`
+4. User can use the filter functionality to only display items with a certain item type -> `filter()` -> `display()`
+5. User can delete items from the inventory array -> `dlt()` -> `display()`
 
 This pattern ensures that:
-1. The data model (tasks array) is updates first.
-2. Changes are persisted to localStorage
-3. The UI is updated to reflect the current state.
+1. The array holds objects with clear parameters.
+2. New items and theme preferneces are saved to local storage.
+3. The UI is updated when a new item is added.
+4. Live search functionlity is efficient and operational.

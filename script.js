@@ -123,5 +123,44 @@ function retrieveInventory(){
   changeTheme(localStorage.getItem('theme'))
   display(inventory)
 }
+
+let startTime, timerInterval;
+
+// timer function
+function startTimer(){
+  startTime = Date.now();
+  sessionStorage.removeItem("time");
+  
+  timerInterval = setInterval(() => {
+    const seconds = Math.floor((Date.now() - startTime) / 1000);
+    sessionStorage.setItem("time", seconds);
+    updateTimerDisplay(seconds);
+  }, 1000);
+}
+
+// stop timer
+function stopTimer(){
+  clearInterval(timerInterval);
+}
+
+// format time
+function getFormattedTime(){
+  const seconds = +sessionStorage.getItem("time") || 0;
+  return formatTime(seconds);
+}
+
+// update timer
+function updateTimerDisplay(seconds){
+  document.getElementById("timerDisplay").textContent = `Time: ${formatTime(seconds)}`;
+}
+
+// format seconds to Xm Yx
+function formatTime(seconds){
+  const m = Math.floor(seconds / 60);
+  const s = seconds % 60;
+  return `${m}m ${s}s`;
+}
+
+startTimer()
 retrieveInventory()
 changeTheme()
